@@ -1,11 +1,17 @@
 This is a sample of playwright java creating and running in to Docker container
 
 1. Clone this repo
+
 2. Run maven package to get required libs and prepare executable jar 
+
 mvn package
+
 3. Build image
+
 docker build -t playwright-java-docker:1.0.0 .
+
 4. Run the image. That should print title of http://playwright.dev
+
 docker run -t playwright-java-docker:1.0.0
 
 Output should be: 
