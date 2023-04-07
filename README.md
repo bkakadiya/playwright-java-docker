@@ -1,14 +1,27 @@
-         ___        ______     ____ _                 _  ___  
-        / \ \      / / ___|   / ___| | ___  _   _  __| |/ _ \ 
-       / _ \ \ /\ / /\___ \  | |   | |/ _ \| | | |/ _` | (_) |
-      / ___ \ V  V /  ___) | | |___| | (_) | |_| | (_| |\__, |
-     /_/   \_\_/\_/  |____/   \____|_|\___/ \__,_|\__,_|  /_/ 
- ----------------------------------------------------------------- 
+This is a sample of playwright java creating and running in to Docker container
 
+1. Clone this repo
+2. Run maven package to get required libs and prepare executable jar 
+mvn package
+3. Build image
+docker build -t playwright-java-docker:1.0.0 .
+4. Run the image. That should print title of http://playwright.dev
+docker run -t playwright-java-docker:1.0.0
 
-Hi there! Welcome to AWS Cloud9!
+Output should be: 
+Starting playwright...
+Title of http://playwright.dev is: 
+Fast and reliable end-to-end testing for modern web apps | Playwright
 
-To get started, create some files, play with the terminal,
-or visit https://docs.aws.amazon.com/console/cloud9/ for our documentation.
+5. Optionally you can start bash command first and then run java command
 
-Happy coding!
+a. 
+docker run --rm -it --entrypoint bash playwright-java-docker:1.0.0
+
+This will open a command prompt into '/usr/local/myapp123' of a container 
+
+b. Run that executable jar
+
+java -jar app.jar
+
+This should print same output as earlier docker run (same as #4)
